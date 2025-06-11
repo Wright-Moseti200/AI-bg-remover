@@ -5,8 +5,9 @@ let mongoose = require("mongoose");
 const connectDB = require("./configs/mongodb.js");
 require("dotenv").config();
 
-connectDB();
+connectDB(); 
 
+let PORT = process.env.PORT || 4000;
 app.use(cors());
 app.use(express.json());
 
@@ -15,5 +16,6 @@ app.get("/", (req, res) => {
   console.log("express app is running");
 });
 
-
-module.exports = app;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});

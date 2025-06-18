@@ -1,5 +1,5 @@
 let express = require("express");
-import {clerkWebhooks} from "../controllers/userController.js"
+import {clerkWebhooks} from "../controllers/userController"
 let userRouter = express.Router();
 
 

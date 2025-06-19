@@ -5,7 +5,7 @@ let mongoose = require("mongoose");
 const connectDB = require("./configs/mongodb.js");
 require("dotenv").config();
 connectDB(); 
-let userRouter = require("./routes/userRoutes");
+let userRouter = require("./routes/userRoutes.js");
 
 let PORT = process.env.PORT || 4000;
 app.use(cors());

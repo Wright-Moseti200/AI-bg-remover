@@ -1,7 +1,7 @@
 // API controller Function to Manage Clerk User with database
 // http://localhost:4000/api/user/webhooks
 const { Webhook } = require('svix');
-const userModel = require('../models/userModel');
+const userModel = require('../models/userModel.js');
 
 const clerkWebhooks = async (req, res) => {
     try {
@@ -24,6 +24,7 @@ const clerkWebhooks = async (req, res) => {
                     photo: data.image_url
                 }
                 await userModel.create(userData);
+                await userModel.Save();
                 res.json({});
                 break;
             }
@@ -36,12 +37,14 @@ const clerkWebhooks = async (req, res) => {
                     photo: data.image_url
                 }
                 await userModel.findOneAndUpdate({ clerkId: data.id }, userData);
+                await userModel.Save();
                 res.json({});
                 break;
             }
 
             case "user.deleted": {
                 await userModel.findOneAndDelete({ clerkId: data.id });
+                await userModel.Save();
                 res.json({});
                 break;
             }

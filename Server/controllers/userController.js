@@ -21,7 +21,7 @@ const clerkWebhooks = async (req,res)=>{
                     clerkId:data.id,
                     email:data.email_addresses[0].email_address,
                     firstName:data.firstName,
-                    latName:data.lastName,
+                    lastName:data.lastName,
                     photo:data.image_url
                 }
                 await userModel.create(userData);

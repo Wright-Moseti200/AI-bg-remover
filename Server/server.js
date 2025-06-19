@@ -4,9 +4,9 @@ let cors = require("cors");
 let mongoose = require("mongoose");
 const connectDB = require("./configs/mongodb.js");
 require("dotenv").config();
-connectDB(); 
 let userRouter = require("./routes/userRoutes.js");
 
+connectDB();
 let PORT = process.env.PORT || 4000;
 app.use(cors());
 app.use(express.json());
@@ -17,6 +17,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/user",userRouter);
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

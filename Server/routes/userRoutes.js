@@ -1,7 +1,7 @@
 let express = require("express");
-let { clerkWebhooks } = require("../controllers/userController.js");
 let userRouter = express.Router();
+ let clerkWebhooks = require("../controllers/userController");
 
-userRouter.get('/webhooks', clerkWebhooks);
+ userRouter.post("/webhooks",clerkWebhooks);
 
-module.exports = userRouter;
+ module.exports = userRouter;

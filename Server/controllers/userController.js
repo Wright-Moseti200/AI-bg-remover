@@ -130,4 +130,4 @@ const clerkWebhooks = async (req, res) => {
     }
 };
 
-module.exports = { clerkWebhooks };
+module.exports =  clerkWebhooks ;

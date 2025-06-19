@@ -4,4 +4,4 @@ let userRouter = express.Router();
 
 userRouter.post('/webhooks', clerkWebhooks);
 
-module.exports = userRouter
+module.exports = userRouter;

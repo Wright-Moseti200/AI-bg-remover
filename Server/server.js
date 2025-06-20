@@ -2,9 +2,9 @@ let express = require("express");
 let app = express();
 let cors = require("cors");
 let mongoose = require("mongoose");
-const connectDB = require("./configs/mongodb.js");
+const {connectDB} = require("./configs/mongodb");
 require("dotenv").config();
-let userRouter = require("./routes/userRoutes.js");
+let {userRouter} = require("./routes/userRoutes");
 
 connectDB();
 let PORT = process.env.PORT || 4000;

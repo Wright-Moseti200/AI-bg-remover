@@ -56,7 +56,7 @@ const clerkWebhooks = async (req,res)=>{
     }
 }
 
-module.exports={clerkWebhooks};
+
 
 const userCredits = async(req,res)=>{
 try{

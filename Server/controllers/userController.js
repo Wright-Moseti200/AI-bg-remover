@@ -1,9 +1,9 @@
 // API Controller Function to Manage Clerk User with database
 // http://localhost:4000/api/user/webhooks
-import { Webhook } from 'svix';
-import User from '../models/userModel.js';
+const { Webhook } = require('svix');
+const User = require('../models/userModel');
 
-export const clerkWebhooks = async (req, res) => {
+const clerkWebhooks = async (req, res) => {
     try {
         // Create a Svix instance with clerk webhook secret
         const whook = new Webhook(process.env.CLERK_WEBHOOK_SECRET);
@@ -37,6 +37,7 @@ export const clerkWebhooks = async (req, res) => {
                     photo: data.image_url
                 };
                 await User.findOneAndUpdate({ clerkId: data.id }, userData);
+                res.json({});
                 break;
             }
 
@@ -47,6 +48,7 @@ export const clerkWebhooks = async (req, res) => {
             }
 
             default:
+                res.json({});
                 break;
         }
     }

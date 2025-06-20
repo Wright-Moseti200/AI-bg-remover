@@ -1,6 +1,6 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import { clerkWebhooks } from '../controllers/userController.js';
+const express = require('express');
+const bodyParser = require('body-parser');
+const { clerkWebhooks } = require('../controllers/userController');
 
 const userRouter = express.Router();
 
@@ -19,4 +19,4 @@ userRouter.post(
   clerkWebhooks
 );
 
-export default userRouter;
+module.exports = { userRouter };

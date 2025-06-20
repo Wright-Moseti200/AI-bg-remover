@@ -1,8 +1,8 @@
-import mongoose from 'mongoose';
+let mongoose = require("mongoose");
 
-const connectDB = () => {
-  mongoose.connect(`${process.env.MONGODB_URI}/newbgusers`);
-  console.log('Database connected');
-};
+const connectDB = ()=>{
+     mongoose.connect(`${process.env.MONGODB_URI}/bg`);
+    console.log("Database connected");
+}
 
-export default connectDB;
+module.exports = { connectDB };

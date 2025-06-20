@@ -1,7 +1,7 @@
 let mongoose = require("mongoose");
 
 const connectDB = ()=>{
-    mongoose.connect(`${process.env.MONGODB_URI}/bguserdatabse`);
+    mongoose.connect(`${process.env.MONGODB_URI}/bguser`);
     console.log("Database connected");
 }
 

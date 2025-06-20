@@ -1,7 +1,10 @@
-let express = require("express");
-let userRouter = express.Router();
- let clerkWebhooks = require("../controllers/userController.js");
+import express from 'express';
+import bodyParser from 'body-parser';
+import clerkWebhookHandler from '../controllers/userController.js';
 
- userRouter.post("/webhooks",clerkWebhooks);
+const userRouter= express.Router();
 
- module.exports = userRouter;
+// Clerk webhook endpoint with raw body parsing for svix
+userRouter.post('/webhooks',clerkWebhookHandler);
+
+export default userRouter;

@@ -1,23 +1,25 @@
-let express = require("express");
-let app = express();
-let cors = require("cors");
-let mongoose = require("mongoose");
-const connectDB = require("./configs/mongodb.js");
-require("dotenv").config();
-let userRouter = require("./routes/userRoutes.js");
+import express from 'express';
+import cors from 'cors';
+import mongoose from 'mongoose';
+import connectDB from './configs/mongodb.js';
+import userRouter from './routes/userRoutes.js';
+import dotenv from 'dotenv';
 
-connectDB();
-let PORT = process.env.PORT || 4000;
+dotenv.config();
+await connectDB();
+
+const app = express();
+const PORT = process.env.PORT || 4000;
+
 app.use(cors());
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("express app is running");
-  console.log("express app is running");
+app.get('/', (req, res) => {
+  res.send('express app is running');
+  console.log('express app is running');
 });
 
-app.use("/api/user",userRouter);
-
+app.use('/api/user', userRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

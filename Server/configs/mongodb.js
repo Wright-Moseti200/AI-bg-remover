@@ -1,7 +1,7 @@
 let mongoose = require("mongoose");
 
-const connectDB = async()=>{
-    await mongoose.connect(`${process.env.MONGODB_URI}/bg`);
+const connectDB = ()=>{
+    mongoose.connect(`${process.env.MONGODB_URI}/bguserdatabse`);
     console.log("Database connected");
 }
 

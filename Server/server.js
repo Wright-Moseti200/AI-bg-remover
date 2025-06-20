@@ -6,7 +6,8 @@ const {connectDB} = require("./configs/mongodb");
 require("dotenv").config();
 let {userRouter} = require("./routes/userRoutes");
 
-async function payload(){
+async function payload()
+{
  await connectDB();
 let PORT = process.env.PORT || 4000;
 app.use(cors());
@@ -24,4 +25,4 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 }
-payload()
+payload();

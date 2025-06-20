@@ -8,7 +8,8 @@ let {userRouter} = require("./routes/userRoutes");
 
 async function payload()
 {
- await connectDB();
+  
+await connectDB();
 let PORT = process.env.PORT || 4000;
 app.use(cors());
 app.use(express.json());

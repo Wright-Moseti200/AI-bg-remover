@@ -1,28 +1,26 @@
-let express = require("express");
-let app = express();
-let cors = require("cors");
-let mongoose = require("mongoose");
-const {connectDB} = require("./configs/mongodb");
-require("dotenv").config();
-let {userRouter} = require("./routes/userRoutes");
+import express from 'express';
+import cors from 'cors';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import userRouter from './routes/userRoutes.js';
+import connectDB from './configs/mongodb.js';
 
-async function payload()
-{
- await connectDB();
-let PORT = process.env.PORT || 4000;
+dotenv.config();
+await connectDB();
+
+const app = express();
+const PORT = process.env.PORT || 4000;
+
 app.use(cors());
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("express app is running");
-  console.log("express app is running");
+app.get('/', (req, res) => {
+  res.send('express app is running');
+  console.log('express app is running');
 });
 
-app.use("/api/user",userRouter);
-
+app.use('/api/user', userRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
-}
-payload();

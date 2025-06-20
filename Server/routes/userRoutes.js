@@ -1,7 +1,22 @@
-let express = require("express");
-let userRouter = express.Router();
- let {clerkWebhooks} = require("../controllers/userController");
+import express from 'express';
+import bodyParser from 'body-parser';
+import { clerkWebhooks } from '../controllers/userController.js';
 
- userRouter.post("/webhooks",clerkWebhooks);
+const userRouter = express.Router();
 
- module.exports = {userRouter};
+userRouter.post(
+  '/webhooks',
+  bodyParser.raw({ type: 'application/json' }),
+  (req, res, next) => {
+    req.rawBody = req.body;
+    try {
+      req.body = JSON.parse(req.body.toString());
+    } catch (e) {
+      return res.status(400).json({ error: 'Invalid JSON' });
+    }
+    next();
+  },
+  clerkWebhooks
+);
+
+export default userRouter;

@@ -14,6 +14,7 @@
     "@clerk/express": "^1.7.0",
     "axios": "^1.9.0",
     "axois": "^0.0.1-security",
+    "clerk": "^0.8.3",
     "cors": "^2.8.5",
     "data": "^1.0.0",
     "dotenv": "^16.5.0",
